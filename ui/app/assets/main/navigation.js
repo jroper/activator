@@ -1,7 +1,7 @@
 /*
  Copyright (C) 2013 Typesafe, Inc <http://typesafe.com>
  */
-define(['commons/utils', 'webjars!knockout', 'commons/settings'],
+define(['commons/utils', 'lib/knockout/knockout', 'commons/settings'],
     function(utils, ko, settings) {
   settings.register("app.navigationOpened", true);
 
