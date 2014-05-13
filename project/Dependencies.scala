@@ -4,12 +4,14 @@ import Keys._
 object Dependencies {
   val sbtVersion = "0.13.0"
   val sbtPluginVersion = "0.13"
-  val sbtPluginScalaVersion = "2.10.4"
-  val scalaVersion = "2.10.4"
+  val sbtPluginScalaVersion = "2.11.0"
+  val scalaVersion = "2.11.0"
   val luceneVersion = "4.2.1"
   val templateCacheVersion = "0.3.1"
   // echo enabled version (1.1.x)
-  val sbtRcVersion = "1.0-8c95c20cc8fb12e53a7ab3a4550cce1b8c2e185a"
+  //val sbtRcVersion = "1.0-8c95c20cc8fb12e53a7ab3a4550cce1b8c2e185a"
+  // Scala 2.11 + Akka 2.3.2_2.11
+  val sbtRcVersion = "1.0-61ea50a8218ad5faeeb7968c4b9bbd7c51e0c93f"
 
   val playVersion = "2.3.0-RC1"
   val webJarsVersion = "2.3-M1"
@@ -38,23 +40,24 @@ object Dependencies {
   val sbtshimUiInterface13   = "com.typesafe.sbtrc" % "sbt-rc-ui-interface-0-13" % sbtRcVersion
   val sbtCompletion           = "org.scala-sbt" % "completion" % sbtVersion
 
-  val akkaActor            = "com.typesafe.akka" % "akka-actor_2.10" % akkaVersion
-  val akkaSlf4j            = "com.typesafe.akka" % "akka-slf4j_2.10" % akkaVersion
-  val akkaTestkit          = "com.typesafe.akka" % "akka-testkit_2.10"% akkaVersion
+  val akkaActor            = "com.typesafe.akka" % "akka-actor_2.11" % akkaVersion
+  val akkaSlf4j            = "com.typesafe.akka" % "akka-slf4j_2.11" % akkaVersion
+  val akkaTestkit          = "com.typesafe.akka" % "akka-testkit_2.11"% akkaVersion
 
   val commonsIo            = "commons-io" % "commons-io" % "2.0.1"
 
   val mimeUtil             = "eu.medsea.mimeutil" % "mime-util" % "2.1.1" exclude("org.slf4j", "slf4j-log4j12") exclude("org.slf4j", "slf4j-api") exclude("log4j", "log4j")
 
   val junitInterface       = "com.novocode" % "junit-interface" % "0.7"
-  val specs2               = "org.specs2" % "specs2_2.10" % "2.3.11"
+  val specs2               = "org.specs2" % "specs2_2.11" % "2.3.11"
 
   // SBT 0.13 required plugins
-  val playSbt13Plugin        =  Defaults.sbtPluginExtra("com.typesafe.play" % "sbt-plugin" % playVersion, "0.13", "2.10")
-  val eclipseSbt13Plugin     =  Defaults.sbtPluginExtra("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.2.0", "0.13", "2.10")
-  val ideaSbt13Plugin        =  Defaults.sbtPluginExtra("com.github.mpeltonen" % "sbt-idea" % "1.5.2", "0.13", "2.10")
-  val echoSbt13Plugin        =  Defaults.sbtPluginExtra("com.typesafe.sbt" % "sbt-echo-play" % echoPluginVersion, "0.13", "2.10")
-  val echoPlaySbt13Plugin    =  Defaults.sbtPluginExtra("com.typesafe.sbt" % "sbt-echo" % echoPluginVersion, "0.13", "2.10")
+  val playSbt13Plugin        =  Defaults.sbtPluginExtra("com.typesafe.play" % "sbt-plugin" % playVersion, "0.13", "2.11")
+  val eclipseSbt13Plugin     =  Defaults.sbtPluginExtra("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.2.0", "0.13", "2.11")
+  val ideaSbt13Plugin        =  Defaults.sbtPluginExtra("com.github.mpeltonen" % "sbt-idea" % "1.5.2", "0.13", "2.11")
+  // TODO (h3nk3): Uncomment when 2.11 version of Echo is available
+  //val echoSbt13Plugin        =  Defaults.sbtPluginExtra("com.typesafe.sbt" % "sbt-echo-play" % echoPluginVersion, "0.13", "2.11")
+  //val echoPlaySbt13Plugin    =  Defaults.sbtPluginExtra("com.typesafe.sbt" % "sbt-echo" % echoPluginVersion, "0.13", "2.11")
 
   // Embedded databases / index
   val lucene = "org.apache.lucene" % "lucene-core" % luceneVersion
@@ -63,7 +66,7 @@ object Dependencies {
 
 
   // WebJars for the Activator UI
-  val webjarsPlay3     = "org.webjars" %% "webjars-play" % Dependencies.webJarsVersion
+  val webjarsPlay3     = "org.webjars" % "webjars-play_2.10" % Dependencies.webJarsVersion
   val requirejs        = "org.webjars" % "requirejs" % "2.1.11"
   val jquery           = "org.webjars" % "jquery" % "2.0.3"
   val knockout         = "org.webjars" % "knockout" % "3.0.0"
@@ -74,7 +77,8 @@ object Dependencies {
   val keymage          = "org.webjars" % "keymage" % "1.0.1"
 
   // Analyzers used by Inspect
-  val activatorAnalytics = "com.typesafe.activator"  %% "analytics" % activatorAnalyticsVersion
+  // TODO (h3nk3): Upgrade when 2.11 version of Elucidator is available
+  //val activatorAnalytics = "com.typesafe.activator"  % "analytics_2.10" % activatorAnalyticsVersion
 
   // Mini DSL
   // DSL for adding remote deps like local deps.

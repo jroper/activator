@@ -29,7 +29,7 @@ object TheActivatorBuild extends Build {
       sys.props("activator.home") = fixFileForURIish(bd.getAbsoluteFile)
       bd
     }
-  ) 
+  )
   // TODO : Add ++ play.Project.intellijCommandSettings Play 2.3 style to settings above
 
   val root = (
@@ -106,7 +106,8 @@ object TheActivatorBuild extends Build {
   lazy val ui = (
     ActivatorPlayProject("ui")
     dependsOnRemote(
-      webjarsPlay3, requirejs, jquery, knockout, ace, /*requireCss, requireText,*/ keymage, commonsIo, mimeUtil, activatorAnalytics,
+      // TODO (h3nk3): Uncomment when 2.11 version of Elucidator is available
+      webjarsPlay3, requirejs, jquery, knockout, ace, /*requireCss, requireText,*/ keymage, commonsIo, mimeUtil, /*activatorAnalytics,*/
       sbtLauncherInterface % "provided",
       sbtrcRemoteController % "compile;test->test",
       // Here we hack our probes into the UI project.
@@ -229,8 +230,10 @@ object TheActivatorBuild extends Build {
         playSbt13Plugin,
         eclipseSbt13Plugin,
         ideaSbt13Plugin,
-        echoSbt13Plugin,
-        echoPlaySbt13Plugin,
+
+        // TODO (h3nk3): Uncomment when 2.11 version of Echo is available
+        //echoSbt13Plugin,
+        //echoPlaySbt13Plugin,
 
         // featured template deps
         // note: do not use %% here
